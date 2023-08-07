@@ -19,6 +19,8 @@ class Menu:
         crearArchivos = CrearArchivos(self.getNombre())
         
         while condicion == False:
+            print(os.getcwd())
+            
             opcion = self.optionError(f"\n{self.getNombre()} digita una opción:\n"
                                       "\n1.) Crear carpeta."
                                       "\n2.) Crear archivo."
@@ -28,8 +30,6 @@ class Menu:
             
             if opcion == 1:
                 crearCarpeta.crearCarpeta()
-                os.chdir("../")
-                print(os.getcwd())
             elif opcion == 2:
                 crearArchivos.crearArchivo()
             elif opcion == 3:
