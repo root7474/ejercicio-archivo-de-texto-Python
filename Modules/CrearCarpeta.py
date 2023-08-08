@@ -35,10 +35,12 @@ class CrearCarpeta(Menu):
             try:
                 self.setRuta(dataUser)
                 os.chdir(self.getRuta())
-                print(f"\n{os.getcwd()}")
+                print(f"\nEstás en: {os.getcwd()}")
                 condicion = True
             except FileNotFoundError:
                 print("Error!!!... El nombre de la carpeta o del archivo no existe")
+            except NotADirectoryError:
+                print(f"Error!!!... El archivo: {self.getRuta()} no es un directorio")
         return dataUser
     
     def fileExists(self, message):

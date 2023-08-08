@@ -14,14 +14,16 @@ class Menu:
         
         from Modules.CrearCarpeta import CrearCarpeta
         from Modules.CrearArchivos import CrearArchivos
+        from Modules.LeerArchivo import LeerArchivo
         
         crearCarpeta = CrearCarpeta(self.getNombre())
         crearArchivos = CrearArchivos(self.getNombre())
+        leerArchivo = LeerArchivo(self.getNombre())
         
         while condicion == False:
-            print(os.getcwd())
+            print(f"\nEstás en: {os.getcwd()}")
             
-            opcion = self.optionError(f"\n{self.getNombre()} digita una opción:\n"
+            opcion = self.optionError(f"{self.getNombre()} digita una opción:\n"
                                       "\n1.) Crear carpeta."
                                       "\n2.) Crear archivo."
                                       "\n3.) Abrir archivo."
@@ -33,7 +35,7 @@ class Menu:
             elif opcion == 2:
                 crearArchivos.crearArchivo()
             elif opcion == 3:
-                pass
+                leerArchivo.leerArchivo()
             elif opcion == 0:
                 print("Hasta pronto...")
                 condicion = True
