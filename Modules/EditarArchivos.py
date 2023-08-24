@@ -1,27 +1,29 @@
 import os
 from Modules.CrearCarpeta import CrearCarpeta
 
-class LeerArchivo(CrearCarpeta):
+class EditarArchivos(CrearCarpeta):
     def __init__(self, nombre):
         super().__init__(nombre)
     
-    def leerArchivo(self):
-        self.fileNotFound("Digita la ruta del archivo que deseas leer: ")
+    def editarArchivo(self):
+        self.fileNotFound("Digita la ruta del archivo que deseas editar: ")
         lista = os.listdir()
         condicion = False
         
         while condicion == False:
-            print("Qué archivo deseas leer?:\n")
+            print("Qué archivo deseas editar?:\n")
             
             try:
                 for i in lista: print(i)
                 nombreArchivo = input("\nOpción: ")
                 
                 self.setNombreArchivo(nombreArchivo)
-                archivo = open(f"{self.getNombreArchivo()}", 'r')
-                lecturaArchivo = archivo.read()
+                archivo = open(f"{self.getNombreArchivo()}", 'a')
+                archivo.write(f"\n{input()}")
                 
-                print(lecturaArchivo)
+                archivo = open(f"{self.getNombreArchivo()}", 'r')
+                print(archivo.read())
+                
                 archivo.close()
                 condicion = True
             except FileNotFoundError:
@@ -35,4 +37,3 @@ class LeerArchivo(CrearCarpeta):
         self.setDirRaiz(dirRaiz)
         
         os.chdir(self.getDirRaiz())
-    
