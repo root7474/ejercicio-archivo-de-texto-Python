@@ -1,5 +1,5 @@
 import os
-from Modules.Excepciones import Root
+from Modules.Root import Root
 
 class CrearFicheros(Root):
     def __init__(self, nombre):
