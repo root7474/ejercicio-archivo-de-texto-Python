@@ -1,7 +1,7 @@
 import os
-from Modules.CrearCarpeta import CrearCarpeta
+from Modules.Root import Root
 
-class ListarCarpetas(CrearCarpeta):
+class ListarCarpetas(Root):
     def __init__(self, nombre):
         super().__init__(nombre)
     
@@ -17,10 +17,11 @@ class ListarCarpetas(CrearCarpeta):
         for i in lista: print(i)
 
         separador = os.path.sep
-        self.setSeparador(separador)
         dirActual = os.path.dirname(os.path.abspath(__file__))
+        
+        self.setSeparador(separador)
         self.setDirActual(dirActual)
+        
         dirRaiz = self.getSeparador().join(self.getDirActual().split(self.getSeparador())[:-1])
         self.setDirRaiz(dirRaiz)
-        
         os.chdir(self.getDirRaiz())

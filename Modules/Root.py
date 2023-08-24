@@ -1,7 +1,7 @@
 import os
 from Modules.Menu import Menu
 
-class CrearCarpeta(Menu):
+class Root(Menu):
     def __init__(self, nombre):
         super().__init__(nombre)
         self.__ruta = None
@@ -33,26 +33,6 @@ class CrearCarpeta(Menu):
         return self.__dirActual
     def getDirRaiz(self):
         return self.__dirRaiz
-    
-    def crearCarpeta(self):
-        self.__ruta = self.fileNotFound("Digita una ruta para crear la carpeta: ")
-        self.fileExists(f"{self.getNombre()} digita el nombre de la carpeta a crear: ")
-
-        self.__separador = os.path.sep
-        self.__dirActual = os.path.dirname(os.path.abspath(__file__))
-        self.__dirRaiz = self.getSeparador().join(self.getDirActual().split(self.getSeparador())[:-1])
-        
-        os.chdir(self.getDirRaiz())
-        
-    def crearArchivo(self):
-        self.fileNotFound("Digita una ruta para crear el archivo: ")
-        self.__nombreArchivo = self.duplicateArchive(f"{self.getNombre()} digita el nombre del archivo a crear: ")
-        
-        self.__separador = os.path.sep
-        self.__dirActual = os.path.dirname(os.path.abspath(__file__))
-        self.__dirRaiz = self.getSeparador().join(self.getDirActual().split(self.getSeparador())[:-1])
-        
-        os.chdir(self.getDirRaiz())
     
     def fileNotFound(self, message):
         dataUser = None

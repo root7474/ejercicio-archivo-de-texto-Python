@@ -12,14 +12,12 @@ class Menu:
     def menu(self):
         condicion = False
         
-        from Modules.CrearCarpeta import CrearCarpeta
-        # from Modules.CrearArchivos import CrearArchivos
+        from Modules.CrearFicheros import CrearFicheros
         from Modules.LeerArchivo import LeerArchivo
         from Modules.EditarArchivos import EditarArchivos
         from Modules.ListarCarpetas import ListarCarpetas
         
-        crearCarpeta = CrearCarpeta(self.getNombre())
-        # crearArchivos = CrearArchivos(self.getNombre())
+        crearFicheros = CrearFicheros(self.getNombre())
         leerArchivo = LeerArchivo(self.getNombre())
         editarArchivos = EditarArchivos(self.getNombre())
         listarCarpetas = ListarCarpetas(self.getNombre())
@@ -30,9 +28,10 @@ class Menu:
             opcion = self.optionError(f"{self.getNombre()} digita una opción:\n"
                                       "\n1.) Crear carpetas o archivos."
                                       "\n2.) Listar carpetas."
-                                      "\n3.) Abrir archivos."
+                                      "\n3.) Leer archivos."
                                       "\n4.) Editar archivos."
-                                      "\n5.) Eliminar carpetas o archivos."
+                                      "\n5.) Renombrar archivos o carpetas."
+                                      "\n6.) Eliminar carpetas o archivos."
                                       "\n0.) Salir."
                                       "\n\nOpción: ")
             
@@ -42,9 +41,9 @@ class Menu:
                                      "\n1.) Crear carpetas."
                                      "\n2.) Crear archivos.")
                     if opcion == 1:
-                        crearCarpeta.crearCarpeta()
+                        crearFicheros.crearCarpeta()
                     elif opcion == 2:
-                        crearCarpeta.crearArchivo()
+                        crearFicheros.crearArchivo()
                     else:
                         print("Error!!!... Opción incorrecta")
                 case 2:
@@ -60,24 +59,6 @@ class Menu:
                     condicion = True
                 case default:
                     print("Error!!!... Opción incorrecta")
-            
-            """ if opcion == 1:
-                crearCarpeta.crearCarpeta()
-            elif opcion == 2:
-                crearArchivos.crearArchivo()
-            elif opcion == 3:
-                listarCarpetas.listarCarpetas()
-            elif opcion == 4:
-                leerArchivo.leerArchivo()
-            elif opcion == 5:
-                editarArchivos.editarArchivo()
-            elif opcion == 6:
-                pass
-            elif opcion == 0:
-                print("Hasta pronto...")
-                condicion = True
-            else:
-                print("Error!!!... Opción incorrecta") """
             
     def optionError(self, message):
         dataUser = 0
