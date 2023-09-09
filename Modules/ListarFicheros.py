@@ -1,11 +1,11 @@
 import os
 from Modules.Root import Root
 
-class ListarCarpetas(Root):
+class ListarFicheros(Root):
     def __init__(self, nombre):
         super().__init__(nombre)
     
-    def listarCarpetas(self):
+    def listarFicheros(self):
         print(f"{self.getNombre()} qué carpeta deseas listar?:\n")
         lista = os.listdir("./")
         for i in lista: print(i)

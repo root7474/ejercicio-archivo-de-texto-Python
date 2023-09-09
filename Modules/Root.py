@@ -1,9 +1,8 @@
 import os
-from Modules.Menu import Menu
 
-class Root(Menu):
+class Root:
     def __init__(self, nombre):
-        super().__init__(nombre)
+        self.__nombre = nombre
         self.__ruta = None
         self.__nombreArchivo = None
         self.__separador = None
@@ -22,7 +21,7 @@ class Root(Menu):
         self.__dirRaiz = dirRaiz
     
     def getNombre(self):
-        return super().getNombre()
+        return self.__nombre
     def getRuta(self):
         return self.__ruta
     def getNombreArchivo(self):
@@ -81,5 +80,17 @@ class Root(Menu):
                 archivo.write(input())
                 archivo.close()
                 condicion = True
+        return dataUser
+
+    def optionError(self, message):
+        dataUser = 0
+        condicion = False
+
+        while condicion == False:
+            try:
+                dataUser = int(input(message))
+                condicion = True
+            except ValueError:
+                print("Error!!!... Solo debes ingresar números")
         return dataUser
     

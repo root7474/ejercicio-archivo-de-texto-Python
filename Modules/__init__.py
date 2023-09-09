@@ -1,1 +1,9 @@
-__all__ = ["Menu", "Root", "CrearFicheros", "LeerArchivo", "EditarArchivos", "ListarCarpetas"]
+__all__ = [
+    "Menu",
+    "Root",
+    "CrearFicheros",
+    "LeerArchivo",
+    "EditarArchivos",
+    "ListarFicheros",
+    "RenombrarFicheros"
+]
