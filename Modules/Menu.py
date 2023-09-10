@@ -2,13 +2,8 @@ import os
 from Modules.Root import Root
 
 class Menu(Root):
-    __nombre = None
-    
-    def __init__(self, nombre):
-        super().__init__(nombre)
-    
-    def getNombre(self):
-        return super().getNombre()
+    def __init__(self):
+        super().__init__()
     
     def menu(self):
         condicion = False
@@ -18,13 +13,15 @@ class Menu(Root):
         from Modules.EditarArchivos import EditarArchivos
         from Modules.ListarFicheros import ListarFicheros
         from Modules.RenombrarFicheros import RenombrarFicheros
+        from Modules.EliminarFicheros import EliminarFicheros
         
-        crearFicheros = CrearFicheros(self.getNombre())
-        listarFicheros = ListarFicheros(self.getNombre())
-        leerArchivo = LeerArchivo(self.getNombre())
-        editarArchivos = EditarArchivos(self.getNombre())
-        renombrarFicheros = RenombrarFicheros(self.getNombre())
-        
+        crearFicheros = CrearFicheros()
+        listarFicheros = ListarFicheros()
+        leerArchivo = LeerArchivo()
+        editarArchivos = EditarArchivos()
+        renombrarFicheros = RenombrarFicheros()
+        eliminarFicheros = EliminarFicheros()
+
         while condicion == False:
             print(f"\nEstás en: {os.getcwd()}")
             
@@ -40,16 +37,19 @@ class Menu(Root):
             
             match opcion:
                 case 1:
-                    opcion = self.optionError(f"{self.getNombre()} qué deseas hacer?:\n"
-                                              "\n1.) Crear carpetas."
-                                              "\n2.) Crear archivos."
-                                              "\n\nopción: ")
-                    if opcion == 1:
-                        crearFicheros.crearCarpeta()
-                    elif opcion == 2:
-                        crearFicheros.crearArchivo()
-                    else:
-                        print("Error!!!... Opción incorrecta")
+                    while True:
+                        opcion = self.optionError(f"{self.getNombre()} qué deseas hacer?:\n"
+                                                  "\n1.) Crear carpetas."
+                                                  "\n2.) Crear archivos."
+                                                  "\n\nOpción: ")
+                        if opcion == 1:
+                            crearFicheros.crearCarpeta()
+                            break
+                        elif opcion == 2:
+                            crearFicheros.crearArchivo()
+                            break
+                        else:
+                            print("Error!!!... Opción incorrecta")
                 case 2:
                     listarFicheros.listarFicheros()
                 case 3:
@@ -59,7 +59,7 @@ class Menu(Root):
                 case 5:
                     renombrarFicheros.renombrarFichero()
                 case 6:
-                    pass
+                    eliminarFicheros.eliminarFicheros()
                 case 0:
                     print("Hasta pronto...")
                     condicion = True

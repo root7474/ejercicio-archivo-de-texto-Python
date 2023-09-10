@@ -1,23 +1,26 @@
 import os
+from shutil import rmtree
 from Modules.Root import Root
 
-class RenombrarFicheros(Root):
+class EliminarFicheros(Root):
     def __init__(self):
         super().__init__()
 
-    def renombrarFichero(self):
-        self.fileNotFound("Digita la ruta del fichero que deseas renombrar: ")
+    def eliminarFicheros(self):
+        self.fileNotFound("Digita la ruta del fichero que deseas eliminar: ")
         lista = os.listdir()
         condicion = False
 
         while condicion == False:
-            print("Qué fichero deseas renombrar?:\n")
+            print("Qué fichero deseas eliminar?:\n")
             for i in lista: print(i)
             nombreFichero = input("\nOpción: ")
 
-            if nombreFichero in lista:
-                ficheroNuevoNombre = input("Digita el nombre nuevo del fichero: ")
-                os.rename(nombreFichero, ficheroNuevoNombre)
+            if nombreFichero in lista and os.path.isfile(nombreFichero):
+                os.remove(nombreFichero)
+                condicion = True
+            elif nombreFichero in lista and os.path.isdir(nombreFichero):
+                rmtree(nombreFichero)
                 condicion = True
             else:
                 print(f"Error!!!... El fichero {nombreFichero} no existe")

@@ -2,8 +2,8 @@ import os
 from Modules.Root import Root
 
 class ListarFicheros(Root):
-    def __init__(self, nombre):
-        super().__init__(nombre)
+    def __init__(self):
+        super().__init__()
     
     def listarFicheros(self):
         print(f"{self.getNombre()} qué carpeta deseas listar?:\n")

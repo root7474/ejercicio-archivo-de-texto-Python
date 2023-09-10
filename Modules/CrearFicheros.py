@@ -2,8 +2,8 @@ import os
 from Modules.Root import Root
 
 class CrearFicheros(Root):
-    def __init__(self, nombre):
-        super().__init__(nombre)
+    def __init__(self):
+        super().__init__()
     
     def crearCarpeta(self):
         ruta = self.fileNotFound("Digita una ruta para crear la carpeta: ")

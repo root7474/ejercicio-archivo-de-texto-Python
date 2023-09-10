@@ -1,14 +1,16 @@
 import os
 
 class Root:
-    def __init__(self, nombre):
-        self.__nombre = nombre
+    def __init__(self):
+        self.__nombre = None
         self.__ruta = None
         self.__nombreArchivo = None
         self.__separador = None
         self.__dirActual = None
         self.__dirRaiz = None
-    
+
+    def setNombre(self, nombre):
+        self.__nombre = nombre
     def setRuta(self, ruta):
         self.__ruta = ruta
     def setNombreArchivo(self, nombre):
@@ -93,4 +95,16 @@ class Root:
             except ValueError:
                 print("Error!!!... Solo debes ingresar números")
         return dataUser
-    
+
+    def noneError(self, message):
+        condicion = False
+        nombre = ""
+
+        while condicion == False:
+            nombre = input(message)
+
+            if nombre == "":
+                print("Error!!!... Debes digitar tu nombre")
+            else:
+                condicion = True
+        return nombre
