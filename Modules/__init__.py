@@ -5,5 +5,6 @@ __all__ = [
     "LeerArchivo",
     "EditarArchivos",
     "ListarFicheros",
-    "RenombrarFicheros"
+    "RenombrarFicheros",
+    "EliminarFicheros"
 ]
