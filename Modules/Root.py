@@ -12,7 +12,7 @@ Esta clase contiene las siguientes propiedades:
 class Root:
     # Creamos un constructor para esta clase y le pasamos como parámetro "self"
     def __init__(self):
-        # Creamos unos atributos privados y les pasamos un valor nulo
+        # Creamos unos atributos privados y les pasamos un valor nulo (None)
         self.__nombre = None
         self.__ruta = None
         self.__nombreArchivo = None
@@ -53,7 +53,7 @@ class Root:
     Esta función contiene lo siguiente:
         - Dos parámetros "self" y "message" que recibe una cadena de caracteres
         - Una variable "dataUser" que imprime el valor del parámetro "message" y recibe los datos que ingrese el usuario
-        - Una variable "condición" que nos servirá como condicional  del bucle "while" de esta función
+        - Una variable "condicion" que nos servirá como condicional del bucle "while" de esta función
     """
     def fileNotFound(self, message):
         dataUser = None # Inicializamos a dataUser con un valor nulo (None)
@@ -61,7 +61,7 @@ class Root:
 
         # Mientras que "condicion" sea igual a False, haremos lo siguiente:
         while condicion == False:
-            dataUser = input(message) # Imprimimos el valor de message y guardamos los datos que ingrese el usuario dentro de "dataUser"
+            dataUser = input(message) # Imprimimos el valor de "message" y guardamos los datos que ingrese el usuario dentro de "dataUser"
 
             # Generamos un bloque try por si la ejecución del código es correcta
             # o no. En caso de que la ejecución del código no sea correcta,
@@ -83,7 +83,7 @@ class Root:
     Esta función contiene lo siguiente:
         - Dos parámetros "self" y "message" que recibe una cadena de caracteres
         - Una variable "dataUser" que imprime el valor del parámetro "message" y recibe los datos que ingrese el usuario
-        - Una variable "condición" que nos servirá como condicional  del bucle "while" de esta función
+        - Una variable "condicion" que nos servirá como condicional  del bucle "while" de esta función
     """
     def fileExists(self, message):
         dataUser = None # Inicializamos a "dataUser" con un valor nulo (None)
@@ -91,7 +91,7 @@ class Root:
 
         # Mientras que "condicion" sea igual a False, haremos lo siguiente:
         while condicion == False:
-            dataUser = input(message) # Imprimimos el valor de message y guardamos los datos que ingrese el usuario dentro de "dataUser"
+            dataUser = input(message) # Imprimimos el valor de "message" y guardamos los datos que ingrese el usuario dentro de "dataUser"
 
             # Generamos un bloque try por si la ejecución del código es correcta
             # o no. En caso de que la ejecución del código no sea correcta,
@@ -108,7 +108,8 @@ class Root:
     Esta función contiene lo siguiente:
         - Dos parámetros "self" y "message" que recibe una cadena de caracteres
         - Una variable "dataUser" que imprime el valor del parámetro "message" y recibe los datos que ingrese el usuario
-        - Una variable "condición" que nos servirá como condicional  del bucle "while" de esta función
+        - Una variable "condicion" que nos servirá como condicional  del bucle "while" de esta función
+        - Una variable "archivo" que nos permite abrir un archivo y retornarlo como un objeto
     """
     def duplicateArchive(self, message):
         dataUser = None # Inicializamos a "dataUser" con un valor nulo (None)
@@ -116,14 +117,14 @@ class Root:
 
         # Mientras que "condicion" sea igual a False, haremos lo siguiente:
         while condicion == False:
-            dataUser = input(message) # Imprimimos el valor de message y guardamos los datos que ingrese el usuario dentro de "dataUser"
+            dataUser = input(message) # Imprimimos el valor de "message" y guardamos los datos que ingrese el usuario dentro de "dataUser"
             self.setNombreArchivo(dataUser) # Agregamos a la ruta el nombre del archivo y enviamos el resultado al método "setNombreArchivo()"
             
             if os.path.exists(self.getNombreArchivo()) == True:
                 print("Error!!!... El archivo o carpeta ya existe") # Si el el nombre del archivo ingresado existe dentro de la ruta, lanzamos este error
             else:
-                archivo = open(f"{self.getNombreArchivo()}", 'w') # Llamamos a la función "open()" y le pasamos como parámetros la ruta del archivo a crear y el permiso de escritura
-                archivo.write(input()) # Hacemos que el usuario escriba algún texto con la función "write()", pasándole como parámetrode entrada la función "input()"
+                archivo = open(f"{self.getNombreArchivo()}", 'w') # Llamamos a la función "open()" y le pasamos como parámetros el nombre del archivo a crear y el permiso de escritura
+                archivo.write(input()) # Hacemos que el usuario escriba algún texto con la función "write()", pasándole como parámetro de entrada la función "input()"
                 archivo.close() # Mediante la función "close()" cerramos la ejecución ciclica de la función "open()"
                 condicion = True # A "condicion" le pasamos el valor de True y finalizamos la ejecución del ciclo
         return dataUser # Devolvemos el valor de "dataUser"
@@ -133,7 +134,7 @@ class Root:
     Esta función contiene lo siguiente:
         - Dos parámetros "self" y "message" que recibe una cadena de caracteres
         - Una variable "dataUser" que imprime el valor del parámetro "message" y recibe los datos que ingrese el usuario
-        - Una variable "condición" que nos servirá como condicional  del bucle "while" de esta función
+        - Una variable "condicion" que nos servirá como condicional  del bucle "while" de esta función
     """
     def optionError(self, message):
         dataUser = 0 # Inicializamos a "dataUser" en cero
@@ -152,7 +153,7 @@ class Root:
     Declaramos una función "noneError()" que nos permite evaluar el nombre ingresado por el usuario.
     Esta función contiene lo siguiente:
         - Dos parámetros "self" y "message" que recibe una cadena de caracteres
-        - Una variable "condición" que nos servirá como condicional  del bucle "while" de esta función
+        - Una variable "condicion" que nos servirá como condicional  del bucle "while" de esta función
         - Una variable "nombre" que imprime el valor del parámetro "message" y recibe el nombre que ingrese el usuario
     """
     def noneError(self, message):
