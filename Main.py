@@ -1,3 +1,5 @@
+# Programa para crear, leer, editar y eliminar ficheros
+# Autor: David Rodríguez
 # Importamos las clases a usar
 from Modules.Menu import Menu
 from Modules.Root import Root

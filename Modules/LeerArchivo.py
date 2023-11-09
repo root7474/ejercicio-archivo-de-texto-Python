@@ -19,6 +19,9 @@ class LeerArchivo(Root):
         - Una variable "condicion" que nos servirá como condicional del bucle "while" de esta función
         - Una variable "nombreArchivo" en la que guardaremos el nombre del archivo a visualizar
         - Una variable "archivo" que nos permite abrir un archivo y retornarlo como un objeto
+        - Una variable "separador" en la que generaremos un separador para la ruta actual
+        - Una variable "dirActual" que permite guardar la ruta desde donde se carga un módulo Python
+        . Una variable "dirRaiz" que nos permite redirigirnos al directorio raíz
     """
     def leerArchivo(self):
         self.fileNotFound("Digita la ruta del archivo que deseas leer: ") # Hacemos una llamada a la función "fileNotFound()" de la clase "Root()" y le pasamos un string como parámetro
